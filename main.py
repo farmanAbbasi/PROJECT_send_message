@@ -6,6 +6,8 @@ app = Flask(__name__)
 import json
 import io
 from twilio.rest import Client
+from flask_cors import CORS, cross_origin
+CORS(app)
 
 account_sid = "AC7a15814cc0850e87d0168b1744d12561"
 auth_token  = "c6346342a32471b7a929b52e1659cef4"
@@ -13,11 +15,12 @@ FROM="+12015483553"
 
 def sendMessageFunc(data):
         try:
-                client = Client(account_sid, auth_token)
-                message = client.messages.create(
-                        to=data['to'],
-                        from_=FROM,
-                        body=data['message'])
+                for number in data['to']:
+                         client = Client(account_sid, auth_token)
+                         message = client.messages.create(
+                                 to=number,
+                                 from_=FROM,
+                                 body=data['message'])
         except Exception as e:
                 print(e)
         return "success"
