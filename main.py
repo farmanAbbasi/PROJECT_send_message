@@ -9,9 +9,9 @@ from twilio.rest import Client
 from flask_cors import CORS, cross_origin
 CORS(app)
 
-account_sid = "AC7a15814cc0850e87d0168b1744d12561"
-auth_token  = "c6346342a32471b7a929b52e1659cef4"
-FROM="+12015483553"
+account_sid = "AC0eda81b4d60ae7f31eb5ae99e6a33bf2"
+auth_token  = "078e2dae8f2f431f9fe6f9b48f2f1372"
+FROM="+18305212188"
 
 def sendMessageFunc(data):
         try:
